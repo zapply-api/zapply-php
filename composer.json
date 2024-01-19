@@ -1,0 +1,24 @@
+{
+    "name": "zapply/zapply-php",
+    "description": "Zapply PHP SDK",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Zapply\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.1",
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.47",
+        "pestphp/pest": "^2.31",
+        "pestphp/pest-plugin-mock": "^2.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
