@@ -29,6 +29,14 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-php-
 
+    - name: "Install PHP 8.2"
+      uses: "shivammathur/setup-php@v2"
+      with:
+        coverage: "none"
+        extensions: "intl, zip"
+        ini-values: "memory_limit=-1"
+        php-version: "8.2"
+
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
