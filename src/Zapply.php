@@ -149,9 +149,7 @@ class Zapply
     public function post($uri, array $data = [])
     {
         try {
-            $response = $this->client->request('POST', $uri, [
-                'json' => $data
-            ]);
+            $response = $this->client->request('POST', $uri, $data);
             return json_decode($response->getBody(), true);
         } catch (GuzzleException $e) {
             // Handle or rethrow the exception as per your SDK's design
@@ -169,9 +167,7 @@ class Zapply
     public function put($uri, array $data = [])
     {
         try {
-            $response = $this->client->request('PUT', $uri, [
-                'json' => $data
-            ]);
+            $response = $this->client->request('PUT', $uri, $data);
             return json_decode($response->getBody(), true);
         } catch (GuzzleException $e) {
             // Handle or rethrow the exception as per your SDK's design
@@ -206,9 +202,7 @@ class Zapply
     public function patch($uri, array $data = [])
     {
         try {
-            $response = $this->client->request('PATCH', $uri, [
-                'json' => $data
-            ]);
+            $response = $this->client->request('PATCH', $uri, $data);
             return json_decode($response->getBody(), true);
         } catch (GuzzleException $e) {
             // Handle or rethrow the exception as per your SDK's design
