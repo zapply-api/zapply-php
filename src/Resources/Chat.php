@@ -2,6 +2,7 @@
 
 namespace Zapply\Resources;
 
+use RuntimeException;
 use Zapply\Zapply;
 
 class Chat extends Resource
@@ -225,5 +226,23 @@ class Chat extends Resource
     public function unarchive()
     {
         return $this->client->post('/api/v1/chats/' . $this->id . '/unarchive');
+    }
+
+    /**
+     * React to a message.
+     *
+     * @param string $serializedMessageId
+     * @param string $reaction
+     * @return array
+     * @throws RuntimeException
+     */
+    public function react(string $serializedMessageId, string $reaction)
+    {
+        return $this->client->post('/api/v1/chats/' . $this->id . '/react', [
+            'json' => [
+                'messageId' => $serializedMessageId,
+                'reaction' => $reaction
+            ]
+        ]);
     }
 }

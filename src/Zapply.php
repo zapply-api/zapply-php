@@ -128,13 +128,12 @@ class Zapply
      * @param string $uri The URI to send the request to.
      * @return array The response data.
      */
-    public function get($uri)
+    public function get($uri, array $data = [])
     {
         try {
-            $response = $this->client->request('GET', $uri);
+            $response = $this->client->request('GET', $uri, $data);
             return json_decode($response->getBody(), true);
         } catch (GuzzleException $e) {
-            // Handle or rethrow the exception as per your SDK's design
             throw new \RuntimeException('GET request failed: ' . $e->getMessage());
         }
     }
@@ -152,7 +151,6 @@ class Zapply
             $response = $this->client->request('POST', $uri, $data);
             return json_decode($response->getBody(), true);
         } catch (GuzzleException $e) {
-            // Handle or rethrow the exception as per your SDK's design
             throw new \RuntimeException('POST request failed: ' . $e->getMessage());
         }
     }
@@ -170,7 +168,6 @@ class Zapply
             $response = $this->client->request('PUT', $uri, $data);
             return json_decode($response->getBody(), true);
         } catch (GuzzleException $e) {
-            // Handle or rethrow the exception as per your SDK's design
             throw new \RuntimeException('PUT request failed: ' . $e->getMessage());
         }
     }
@@ -187,7 +184,6 @@ class Zapply
             $response = $this->client->request('DELETE', $uri);
             return json_decode($response->getBody(), true);
         } catch (GuzzleException $e) {
-            // Handle or rethrow the exception as per your SDK's design
             throw new \RuntimeException('DELETE request failed: ' . $e->getMessage());
         }
     }
@@ -205,7 +201,6 @@ class Zapply
             $response = $this->client->request('PATCH', $uri, $data);
             return json_decode($response->getBody(), true);
         } catch (GuzzleException $e) {
-            // Handle or rethrow the exception as per your SDK's design
             throw new \RuntimeException('PATCH request failed: ' . $e->getMessage());
         }
     }
